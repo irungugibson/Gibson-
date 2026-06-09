@@ -3,110 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gibson - Dashboard</title>
+    <title>Gibson - Marketplace</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-gray-100 text-gray-900 font-sans antialiased">
+<body class="bg-gray-100 pb-20">
 
-    <div class="min-h-screen flex flex-col max-w-md mx-auto bg-white shadow-md relative pb-32">
-
-        <header id="mainHeader" class="relative h-48 bg-cover bg-center flex flex-col justify-end p-4 border-b border-gray-200" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1518173946687-a4c8a3b1f98e?w=500');">
-            <div class="z-10 text-white">
-                <span id="headerSubtext" class="text-xs font-bold uppercase tracking-widest text-indigo-300">Gibson Platform</span>
-                <h1 id="headerMainText" class="text-2xl font-black mt-0.5">Welcome Back</h1>
-            </div>
+    <div class="max-w-md mx-auto bg-white min-h-screen shadow-lg">
+        <header class="p-6 bg-indigo-900 text-white">
+            <h1 class="text-2xl font-bold">Gibson Marketplace</h1>
+            <p class="text-indigo-300">Post an item for sale</p>
         </header>
 
-        <div class="bg-indigo-900 text-white p-4 flex items-center justify-between">
-            <div>
-                <p class="text-[10px] text-indigo-300 uppercase font-semibold tracking-wider">Your Journey</p>
-                <h3 class="text-lg font-bold">14 Days Clean</h3>
-            </div>
-            <div class="bg-white/10 p-2 rounded-lg">
-                <i data-lucide="award" class="w-5 h-5 text-indigo-300"></i>
-            </div>
-        </div>
-
-        <div class="p-4 bg-emerald-50 border-b border-emerald-100">
-            <a href="https://wa.me/966541163270" target="_blank" class="flex items-center justify-between w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow transition duration-150">
-                <div class="flex items-center space-x-3">
-                    <i data-lucide="message-circle" class="w-5 h-5 fill-white"></i>
-                    <span class="text-sm">Need Help? Chat on WhatsApp</span>
-                </div>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-            </a>
-        </div>
-
-        <main class="flex-1 bg-white">
-            <nav class="divide-y divide-gray-100">
+        <div class="p-6 space-y-4">
+            <div class="bg-gray-50 p-4 rounded-xl border border-dashed border-gray-300">
+                <label class="block text-sm font-bold mb-2">Item Name</label>
+                <input type="text" id="itemName" class="w-full p-2 border rounded" placeholder="e.g. Graduation Gown">
                 
-                <a href="index.html" class="flex items-center justify-between px-6 py-5 text-xl font-medium text-gray-800 hover:bg-gray-50 transition">
-                    <span>Home</span>
-                    <i data-lucide="home" class="w-5 h-5 text-gray-400"></i>
-                </a>
+                <label class="block text-sm font-bold mt-3 mb-2">Price ($)</label>
+                <input type="number" id="itemPrice" class="w-full p-2 border rounded" placeholder="0.00">
+                
+                <label class="block text-sm font-bold mt-3 mb-2">Location</label>
+                <input type="text" id="itemLoc" class="w-full p-2 border rounded" placeholder="City/Area">
 
-                <a href="#" class="flex items-center justify-between px-6 py-5 text-xl font-medium text-gray-800 hover:bg-gray-50 transition">
-                    <span>Community Feed</span>
-                    <i data-lucide="users" class="w-5 h-5 text-gray-400"></i>
-                </a>
-
-                <a href="#" class="flex items-center justify-between px-6 py-5 text-xl font-medium text-gray-800 hover:bg-gray-50 transition">
-                    <span>My Milestones</span>
-                    <i data-lucide="calendar" class="w-5 h-5 text-gray-400"></i>
-                </a>
-
-                <a href="https://wa.me/966541163270" target="_blank" class="flex items-center justify-between px-6 py-5 text-xl font-medium text-gray-800 hover:bg-gray-50 transition">
-                    <span class="text-emerald-600 font-semibold">Help Center</span>
-                    <div class="flex items-center space-x-2">
-                        <span class="text-xs text-emerald-500 bg-emerald-50 px-2 py-1 rounded-md">WhatsApp Support</span>
-                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-emerald-500"></i>
-                    </div>
-                </a>
-
-                <a href="#" class="flex items-center justify-between px-6 py-5 text-xl font-medium text-gray-800 hover:bg-gray-50 transition">
-                    <span>Privacy & Safety</span>
-                    <i data-lucide="shield" class="w-5 h-5 text-gray-400"></i>
-                </a>
-
-            </nav>
-        </main>
-
-        <footer class="p-6 text-center text-xs text-gray-400 bg-gray-50 border-t border-gray-100">
-            Gibson Recovery Platform &copy; 2026. Safe & Anonymous.
-        </footer>
-        
-        <div class="bg-slate-900 text-white p-4 border-t-2 border-indigo-500">
-            <div class="flex items-center space-x-2 text-indigo-400 mb-3">
-                <i data-lucide="settings" class="w-4 h-4"></i>
-                <span class="text-xs font-bold uppercase tracking-wider">Gibson Admin Tools</span>
-            </div>
-            
-            <div class="space-y-2 text-xs">
-                <div>
-                    <label class="block text-gray-400 mb-1">Header Title Words:</label>
-                    <input type="text" id="adminTitleInput" value="Welcome Back" class="w-full bg-slate-800 text-white rounded p-2 border border-slate-700 focus:outline-none focus:border-indigo-500">
-                </div>
-                <div>
-                    <label class="block text-gray-400 mb-1">Header Image Link (URL):</label>
-                    <input type="text" id="adminImageInput" value="https://images.unsplash.com/photo-1518173946687-a4c8a3b1f98e?w=500" class="w-full bg-slate-800 text-white rounded p-2 border border-slate-700 focus:outline-none focus:border-indigo-500">
-                </div>
-                <button onclick="updateHeader()" class="w-full mt-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 rounded transition">
-                    Apply Changes Locally
+                <button onclick="postItem()" class="w-full mt-5 bg-emerald-600 text-white font-bold py-3 rounded-xl hover:bg-emerald-700">
+                    Post Item
                 </button>
             </div>
-        </div>
 
+            <h2 class="text-lg font-bold mt-6">Recent Listings</h2>
+            <div id="listingsFeed" class="space-y-4">
+                </div>
+        </div>
     </div>
 
     <script>
-        lucide.createIcons();
-
-        function updateHeader() {
-            const newTitle = document.getElementById('adminTitleInput').value;
-            const newImageUrl = document.getElementById('adminImageInput').value;
-            document.getElementById('headerMainText').innerText = newTitle;
-            document.getElementById('mainHeader').style.backgroundImage = `linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('${newImageUrl}')`;
+        function postItem() {
+            const name = document.getElementById('itemName').value;
+            const price = document.getElementById('itemPrice').value;
+            const loc = document.getElementById('itemLoc').value;
+            
+            const feed = document.getElementById('listingsFeed');
+            const newListing = document.createElement('div');
+            newListing.className = "p-4 bg-white border rounded-xl shadow-sm";
+            newListing.innerHTML = `<h3 class="font-bold text-lg">${name}</h3>
+                                    <p class="text-emerald-600 font-semibold">$${price}</p>
+                                    <p class="text-gray-500 text-sm italic">📍 ${loc}</p>`;
+            feed.prepend(newListing);
+            
+            // Clear inputs
+            document.getElementById('itemName').value = '';
+            document.getElementById('itemPrice').value = '';
+            document.getElementById('itemLoc').value = '';
         }
     </script>
 </body>
