@@ -1,37 +1,58 @@
-<!DOCTYPE html> 
+<!DO <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gibson - Support Community</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            background-color: #f4f7f6;
-            color: #2d3748;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        h1 { color: #2c7a7b; }
-        p { font-size: 1.1rem; line-height: 1.6; }
-    </style>
+    <title>Gibson - Break the Cycle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
+<body class="bg-gray-900 text-gray-100 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <div class="container">
-        <h1>Stop Gambling Addiction</h1>
-        <p>Welcome to the support community platform. Your journey to reclaiming control starts here.</p>
-        <p><strong>This site is successfully live!</strong> Stay tuned for updates and resources.</p>
-    </div>
+    <main class="flex-1 flex flex-col items-center justify-center text-center px-6 py-12 max-w-xl mx-auto space-y-8">
+        
+        <div class="w-16 h-16 bg-indigo-600/20 text-indigo-400 rounded-2xl flex items-center justify-center border border-indigo-500/30 shadow-xl shadow-indigo-500/5">
+            <i data-lucide="shield-check" class="w-10 h-10"></i>
+        </div>
 
+        <div class="space-y-3">
+            <h1 class="text-4xl font-black tracking-tight bg-gradient-to-r from-white via-gray-200 to-indigo-400 bg-clip-text text-transparent">
+                Gibson
+            </h1>
+            <p class="text-lg text-gray-400 font-medium leading-relaxed">
+                A safe, anonymous community space built to help you regain control and break free from gambling addiction.
+            </p>
+        </div>
+
+        <div class="w-full text-left bg-gray-800/50 p-5 rounded-xl border border-gray-800 space-y-3">
+            <div class="flex items-start space-x-3">
+                <i data-lucide="users" class="w-5 h-5 text-indigo-400 mt-0.5"></i>
+                <p class="text-sm text-gray-300">100% Anonymous peer support feed</p>
+            </div>
+            <div class="flex items-start space-x-3">
+                <i data-lucide="calendar" class="w-5 h-5 text-indigo-400 mt-0.5"></i>
+                <p class="text-sm text-gray-300">Track your milestones and clean days</p>
+            </div>
+            <div class="flex items-start space-x-3">
+                <i data-lucide="phone" class="w-5 h-5 text-indigo-400 mt-0.5"></i>
+                <p class="text-sm text-gray-300">Instant access to crisis lines & WhatsApp support</p>
+            </div>
+        </div>
+
+        <div class="w-full pt-4">
+            <a href="dashboard.html" class="block w-full text-center bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3.5 px-6 rounded-xl transition duration-200 shadow-lg shadow-indigo-600/20 text-md">
+                Enter Dashboard
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="p-6 text-center text-xs text-gray-500 border-t border-gray-800">
+        Gibson Recovery Platform &copy; 2026. Your privacy is safe with us.
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
