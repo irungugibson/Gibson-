@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stop Gambling Addiction - Support & Resources</title>
+    <title>Gibson market place- Support & Resources</title>
     <style>
         :root {
             --primary: #2563eb;
