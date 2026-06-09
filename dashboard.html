@@ -26,6 +26,9 @@
                 <label class="block text-sm font-bold mt-3 mb-2">Location</label>
                 <input type="text" id="itemLoc" class="w-full p-2 border rounded" placeholder="City/Area">
 
+                <label class="block text-sm font-bold mt-3 mb-2">Image URL</label>
+                <input type="text" id="itemImg" class="w-full p-2 border rounded" placeholder="Paste image link here">
+
                 <button onclick="postItem()" class="w-full mt-5 bg-emerald-600 text-white font-bold py-3 rounded-xl hover:bg-emerald-700">
                     Post Item
                 </button>
@@ -42,19 +45,23 @@
             const name = document.getElementById('itemName').value;
             const price = document.getElementById('itemPrice').value;
             const loc = document.getElementById('itemLoc').value;
+            const img = document.getElementById('itemImg').value;
             
             const feed = document.getElementById('listingsFeed');
             const newListing = document.createElement('div');
             newListing.className = "p-4 bg-white border rounded-xl shadow-sm";
-            newListing.innerHTML = `<h3 class="font-bold text-lg">${name}</h3>
-                                    <p class="text-emerald-600 font-semibold">$${price}</p>
-                                    <p class="text-gray-500 text-sm italic">📍 ${loc}</p>`;
+            newListing.innerHTML = `
+                ${img ? `<img src="${img}" class="w-full h-40 object-cover rounded-lg mb-3">` : ''}
+                <h3 class="font-bold text-lg">${name}</h3>
+                <p class="text-emerald-600 font-semibold">$${price}</p>
+                <p class="text-gray-500 text-sm italic">📍 ${loc}</p>`;
             feed.prepend(newListing);
             
             // Clear inputs
             document.getElementById('itemName').value = '';
             document.getElementById('itemPrice').value = '';
             document.getElementById('itemLoc').value = '';
+            document.getElementById('itemImg').value = '';
         }
     </script>
 </body>
