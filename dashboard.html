@@ -5,47 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gibson - Marketplace</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-gray-100 pb-20">
+<body class="bg-gray-100">
 
-    <div class="max-w-md mx-auto bg-white min-h-screen shadow-lg">
-        <header id="mainHeader" class="p-16 bg-indigo-900 text-white bg-cover bg-center transition-all duration-500">
-            <h1 id="headerTitle" class="text-3xl font-bold p-2 bg-black/20 inline-block rounded">Gibson Marketplace</h1>
+    <div class="max-w-md mx-auto bg-white min-h-screen shadow-lg flex flex-col">
+        
+        <header id="mainHeader" class="p-16 bg-indigo-900 text-white bg-cover bg-center shrink-0">
+            <h1 class="text-2xl font-bold bg-black/30 p-2 inline-block rounded">My Marketplace</h1>
         </header>
 
-        <div class="p-4 bg-slate-900 text-white border-b-4 border-indigo-500">
-            <h2 class="text-[10px] font-bold uppercase text-indigo-400 mb-2">Admin: Set Header Photo</h2>
-            <div class="flex gap-2">
-                <input type="text" id="headerImgInput" placeholder="Filename (e.g. 1000362042.jpg)" class="flex-1 p-2 text-black rounded text-sm">
-                <button onclick="changeHeaderImage()" class="bg-indigo-600 px-4 py-2 rounded font-bold text-sm">Apply Photo</button>
+        <div class="p-4 bg-slate-100 border-b border-gray-200">
+            <label class="block text-[10px] font-bold text-gray-500 uppercase mb-2">Change Header from Gallery</label>
+            <input type="file" id="headerPicker" accept="image/*" class="w-full text-sm">
+        </div>
+
+        <main class="flex-1 p-4 overflow-y-auto mb-20">
+            <div class="bg-slate-50 p-4 rounded-xl border border-dashed border-gray-300 mb-6">
+                <h3 class="text-sm font-bold text-gray-600 mb-2">Post New Item</h3>
+                <input type="text" id="itemName" class="w-full p-2 border rounded mb-2 text-sm" placeholder="Item name...">
+                <input type="file" id="itemPicker" accept="image/*" class="w-full text-sm mb-2">
+                <button onclick="postItem()" class="w-full bg-emerald-600 text-white font-bold py-2 rounded-lg">Post to Feed</button>
             </div>
-        </div>
 
-        <div class="p-6 space-y-4">
-            <h2 class="text-xl font-bold">Post New Item</h2>
-            <input type="text" id="itemName" class="w-full p-2 border rounded" placeholder="Item Name">
-            <input type="text" id="itemImg" class="w-full p-2 border rounded" placeholder="Image Filename (e.g. 1000362042.jpg)">
-            <button onclick="postItem()" class="w-full bg-emerald-600 text-white font-bold py-3 rounded-xl">Post Item</button>
-        </div>
+            <div id="listingsFeed" class="space-y-4"></div>
+        </main>
 
-        <div id="listingsFeed" class="p-6 space-y-4"></div>
+        <nav class="fixed bottom-0 w-full max-w-md bg-white border-t border-gray-200 flex justify-around p-3 shadow-xl shrink-0">
+            <a href="#" class="flex flex-col items-center text-black"><i data-lucide="home"></i><span class="text-[10px]">Shop</span></a>
+            <a href="#" class="flex flex-col items-center text-gray-400"><i data-lucide="search"></i><span class="text-[10px]">Category</span></a>
+            <a href="#" class="flex flex-col items-center text-gray-400"><i data-lucide="trending-up"></i><span class="text-[10px]">Trends</span></a>
+            <a href="#" class="flex flex-col items-center text-gray-400"><i data-lucide="shopping-cart"></i><span class="text-[10px]">Cart</span></a>
+            <a href="#" class="flex flex-col items-center text-gray-400"><i data-lucide="user"></i><span class="text-[10px]">Me</span></a>
+        </nav>
     </div>
 
     <script>
-        function changeHeaderImage() {
-            const newUrl = document.getElementById('headerImgInput').value;
-            document.getElementById('mainHeader').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('${newUrl}')`;
-        }
+        lucide.createIcons();
 
+        // Header Gallery logic
+        document.getElementById('headerPicker').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('mainHeader').style.backgroundImage = `url('${event.target.result}')`;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Item Post logic
         function postItem() {
             const name = document.getElementById('itemName').value;
-            const img = document.getElementById('itemImg').value;
+            const fileInput = document.getElementById('itemPicker');
             const feed = document.getElementById('listingsFeed');
-            const div = document.createElement('div');
-            div.className = "border p-4 rounded-xl shadow-sm";
-            div.innerHTML = `<img src="${img}" class="w-full h-40 object-cover rounded-lg mb-2">
-                             <h3 class="font-bold text-lg">${name}</h3>`;
-            feed.prepend(div);
+            
+            if (fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const div = document.createElement('div');
+                    div.className = "bg-white p-2 rounded-xl shadow border";
+                    div.innerHTML = `<img src="${e.target.result}" class="w-full h-48 object-cover rounded-lg mb-2">
+                                     <h3 class="font-bold px-1">${name}</h3>`;
+                    feed.prepend(div);
+                }
+                reader.readAsDataURL(fileInput.files[0]);
+            }
         }
     </script>
 </body>
