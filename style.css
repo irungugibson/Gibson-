@@ -1,0 +1,25 @@
+:root {
+    --primary: #2563eb;
+    --dark: #1e293b;
+    --light: #f8fafc;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+header {
+    background-color: white;
+    padding: 2rem;
+    text-align: center;
+    color: var(--dark);
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
