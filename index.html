@@ -5,135 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gibson Market Place - Support & Resources</title>
     <style>
-        /* Existing CSS Variables */
         :root {
-            --primary: #2563eb; /* Blue from image_1 */
-            --dark: #1e293b;    /* Dark navy from image_1 */
-            --light: #f8fafc;   /* Off-white */
-            --accent: #dc2626;  /* Red accent for buttons */
+            --primary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #dc2626;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 0;
-            background-color: var(--dark); /* Sets page background */
-            color: var(--light); /* Sets default text color */
+            background-color: var(--dark);
+            color: var(--light);
         }
 
-        /* --- MARKETPLACE HEADER STYLES --- */
         header {
-            background-color: var(--primary); /* Header uses primary color */
-            color: white; /* Text on primary is white */
+            background-color: var(--primary);
             padding: 3rem 1rem;
             text-align: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
-
-        header p {
-            margin: 0.75rem 0 0 0;
-            opacity: 1; /* Full opacity for visibility */
-            font-size: 1.25rem;
-        }
-
-        /* --- MAIN CONTENT & GRID STYLES --- */
-        main {
-            padding: 20px;
-        }
+        header h1 { margin: 0; font-size: 2.5rem; }
 
         .grid-container {
             display: grid;
-            /* Auto-fill creates as many columns as fit, 
-               with minimum width of 250px */
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
+            padding: 20px;
         }
 
-        /* --- PRODUCT CARD STYLES --- */
         .product-card {
             background-color: var(--light);
             border-radius: 8px;
-            color: var(--dark); /* Card text uses dark color */
+            color: var(--dark);
             padding: 20px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px); /* Lift effect on hover */
         }
 
         .product-card img {
             max-width: 100%;
             height: 150px;
-            object-fit: contain; /* Ensures images are fully visible */
+            object-fit: contain;
             margin-bottom: 15px;
-            border-radius: 4px;
         }
 
-        .product-card h3 {
-            margin: 0 0 10px 0;
-        }
-
-        .product-card p {
-            margin: 0 0 15px 0;
-            font-weight: bold;
-            color: var(--primary); /* Price uses primary color */
-        }
-
-        /* --- BUTTON STYLES --- */
-        .product-card .buy-btn {
-            background-color: var(--accent); /* Buttons use accent color */
+        .buy-btn {
+            background-color: var(--accent);
             color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 1rem;
             font-weight: bold;
         }
-
     </style>
 </head>
 <body>
 
     <header>
         <h1>Gibson Market Place</h1>
-        <p>Discover specialized tools, literature, and programs to aid your journey.</p>
+        <p>Discover specialized tools and resources.</p>
     </header>
 
-    <main>
-        <div class="grid-container">
+    <main id="product-grid" class="grid-container">
+        <!-- JavaScript will inject products here -->
+    </main>
 
-            <div class="product-card">
-                <img src="./images/tool1.png" alt="Recovery Toolkit">
-                <h3>Recovery Toolkit</h3>
-                <p>$49.99</p>
+    <script>
+        // ADD NEW PRODUCTS HERE
+        const products = [
+            { name: "Recovery Toolkit", price: "$49.99", img: "images/tool1.png" },
+            { name: "Guided Journal", price: "$19.99", img: "images/book1.png" },
+            { name: "Wellness Program", price: "$99.99", img: "images/program1.png" }
+        ];
+
+        const grid = document.getElementById('product-grid');
+        products.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <img src="${product.img}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>${product.price}</p>
                 <button class="buy-btn">View Details</button>
-            </div>
-
-            <div class="product-card">
-                <img src="./images/book1.png" alt="Guided Journal">
-                <h3>Guided Journal</h3>
-                <p>$19.99</p>
-                <button class="buy-btn">View Details</button>
-            </div>
-
-            <div class="product-card">
-                <img src="./images/program1.png" alt="Wellness Program">
-                <h3>Wellness Program</h3>
-                <p>$99.99/mo</p>
-                <button class="buy-btn">Subscribe</button>
-            </div>
-
-        </div> </main>
-
+            `;
+            grid.appendChild(card);
+        });
+    </script>
 </body>
 </html>
