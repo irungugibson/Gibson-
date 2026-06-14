@@ -1,25 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gibson Market Place</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<html>
+<head><link rel="stylesheet" href="style.css"></head>
 <body>
-    <header>
-        <h1>Gibson Market Place</h1>
-        <nav>
-            <a href="index.html">Home</a> | <a href="category.html">Categories</a> | <a href="trends.html">Trends</a> | <a href="profile.html">Profile</a> | <a href="dashboard.html">Dashboard</a> | <a href="cart.html">Cart</a>
-        </nav>
+    <header><h1>Gibson Market Place</h1>
+        <nav><a href="index.html">Home</a> | <a href="category.html">Categories</a> | <a href="trends.html">Trends</a> | <a href="profile.html">Profile</a> | <a href="dashboard.html">Dashboard</a> | <a href="cart.html">Cart</a></nav>
     </header>
-    <main id="product-grid" class="grid-container" style="padding: 20px; display: grid; gap: 20px;"></main>
+    <div class="grid" id="product-grid"></div>
     <script>
-        const products = [{ name: "Recovery Toolkit", price: "$49.99", img: "images/tool1.png" }, { name: "Guided Journal", price: "$19.99", img: "images/book1.png" }];
+        const products = [{name: "Recovery Toolkit", price: "$49.99"}, {name: "Guided Journal", price: "$19.99"}];
         const grid = document.getElementById('product-grid');
-        products.forEach(p => {
-            grid.innerHTML += `<div class="product-card"><h3>${p.name}</h3><p>${p.price}</p><button class="buy-btn">Add to Cart</button></div>`;
-        });
+        products.forEach(p => grid.innerHTML += `<div class="card"><h3>${p.name}</h3><p>${p.price}</p><button class="buy-btn">Add to Cart</button></div>`);
     </script>
 </body>
 </html>
