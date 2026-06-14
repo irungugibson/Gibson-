@@ -2,39 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gibson - Marketplace</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Dashboard - Gibson Market Place</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-100 font-sans">
-
-    <div class="max-w-md mx-auto bg-white min-h-screen shadow-lg flex flex-col">
-        
-        <header id="mainHeader" class="h-48 bg-indigo-900 text-white bg-cover bg-center shrink-0 flex items-center justify-center">
-            <h1 class="text-2xl font-bold bg-black/30 p-2 rounded">My Marketplace</h1>
-        </header>
-
-        <div class="p-4 bg-slate-100 border-b border-gray-200">
-            <label class="block text-[10px] font-bold text-gray-500 uppercase mb-1">Change Header from Gallery</label>
-            <input type="file" id="headerPicker" accept="image/*" class="w-full text-sm p-2 bg-white rounded border">
-        </div>
-
-        <main class="flex-1 p-4 overflow-y-auto mb-20">
-            <div class="bg-slate-50 p-4 rounded-xl border border-dashed border-gray-300 mb-6">
-                <h3 class="text-sm font-bold text-gray-600 mb-2">Post New Item</h3>
-                <input type="text" id="itemName" class="w-full p-2 border rounded mb-2 text-sm" placeholder="Item name...">
-                <input type="file" id="itemPicker" accept="image/*" class="w-full text-sm mb-2">
-                <button onclick="postItem()" class="w-full bg-emerald-600 text-white font-bold py-2 rounded-lg">Post to Feed</button>
-            </div>
-
-            <div id="listingsFeed" class="space-y-4"></div>
-        </main>
-
-        <nav class="fixed bottom-0 w-full max-w-md bg-white border-t border-gray-200 flex justify-around p-3 shadow-xl shrink-0">
-            <a href="#" class="flex flex-col items-center text-black"><i data-lucide="home"></i><span class="text-[10px]">Shop</span></a>
-            <a href="#" class="flex flex-col items-center text-gray-400"><i data-lucide="search"></i><span class="text-[10px]">Category</span></a>
-            <a href="#" class="flex flex-col items-center text-gray-400"><i data-lucide="trending-up"></i><span class="text-[10px]">Trends</span></a>
+<body>
+    <header><h1>Dashboard</h1></header>
+    <main style="padding: 20px;">
+        <h2>Welcome, Gibson</h2>
+        <p>Manage your store items and view recent orders here.</p>
+        <a href="index.html">← Back to Marketplace</a>
+    </main>
+</body>
+</html>
+<a href="#" class="flex flex-col items-center text-gray-400"><i data-lucide="trending-up"></i><span class="text-[10px]">Trends</span></a>
             <a href="#" class="flex flex-col items-center text-gray-400"><i data-lucide="shopping-cart"></i><span class="text-[10px]">Cart</span></a>
             <a href="#" class="flex flex-col items-center text-gray-400"><i data-lucide="user"></i><span class="text-[10px]">Me</span></a>
         </nav>
